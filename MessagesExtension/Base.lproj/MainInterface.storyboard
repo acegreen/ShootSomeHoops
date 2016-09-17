@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+        <array key="timenormal.ttf">
+            <string>Time-Normal</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ObA-dk-sSI" customClass="GameViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qkL-Od-lgU"/>
+                        <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-c2-wAh">
+                                <fontDescription key="fontDescription" name="Time-Normal" family="Time" pointSize="100"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqu-5J-07V">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdI-4K-ojR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="aTN-WX-Rb0"/>
+                                    <constraint firstAttribute="width" secondItem="bdI-4K-ojR" secondAttribute="height" multiplier="1:1" id="pgL-hV-vE1"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-3c-b2Q">
+                                <fontDescription key="fontDescription" name="Time-Normal" family="Time" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lqu-5J-07V" secondAttribute="trailing" constant="10" id="GdL-Ct-BsG"/>
+                            <constraint firstItem="bdI-4K-ojR" firstAttribute="trailing" secondItem="lqu-5J-07V" secondAttribute="trailing" id="LqI-A5-JKh"/>
+                            <constraint firstItem="3sc-3c-b2Q" firstAttribute="centerY" secondItem="bdI-4K-ojR" secondAttribute="centerY" id="Otd-QC-0fa"/>
+                            <constraint firstAttribute="trailing" secondItem="d1e-fi-ked" secondAttribute="trailing" constant="15" id="XP4-zh-bsF"/>
+                            <constraint firstItem="bdI-4K-ojR" firstAttribute="top" secondItem="lqu-5J-07V" secondAttribute="bottom" constant="3.5" id="ZW4-Id-S0f"/>
+                            <constraint firstItem="lqu-5J-07V" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="10" id="aqQ-lf-pSg"/>
+                            <constraint firstItem="d1e-fi-ked" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="15" id="jps-ug-tjw"/>
+                            <constraint firstItem="7MZ-c2-wAh" firstAttribute="top" secondItem="d1e-fi-ked" secondAttribute="bottom" id="kqA-Nd-pmZ"/>
+                            <constraint firstItem="7MZ-c2-wAh" firstAttribute="centerX" secondItem="d1e-fi-ked" secondAttribute="centerX" id="rde-nQ-6DJ"/>
+                            <constraint firstItem="bdI-4K-ojR" firstAttribute="leading" secondItem="3sc-3c-b2Q" secondAttribute="trailing" constant="5" id="vMm-P8-SvZ"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                    <connections>
+                        <outlet property="currentScoreLabel" destination="7MZ-c2-wAh" id="Nu3-eF-0aw"/>
+                        <outlet property="currentScoreLabelTopConstraint" destination="jps-ug-tjw" id="vIi-Li-sQQ"/>
+                        <outlet property="currentScoreLabelTrailingConstraint" destination="XP4-zh-bsF" id="zwL-j8-Q46"/>
+                        <outlet property="highScoreLabel" destination="3sc-3c-b2Q" id="g4G-1c-H2I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
+        </scene>
+    </scenes>
+</document>
