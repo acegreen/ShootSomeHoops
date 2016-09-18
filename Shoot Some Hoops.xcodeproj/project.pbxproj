@@ -23,6 +23,7 @@
 		23944DC51D8DDECD00B0CC19 /* timenormal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23944DC41D8DDECD00B0CC19 /* timenormal.ttf */; };
 		23944DC61D8DDED300B0CC19 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 23944DA91D8DB9BA00B0CC19 /* game-over.wav */; };
 		23944DC71D8DDED300B0CC19 /* whistle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 23944DAA1D8DB9BA00B0CC19 /* whistle.wav */; };
+		23E5086A1D8DF8D1003012F5 /* swish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 23E508691D8DF8D1003012F5 /* swish.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		23944DBB1D8DB9E400B0CC19 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		23944DBD1D8DD29600B0CC19 /* Basket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		23944DC41D8DDECD00B0CC19 /* timenormal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = timenormal.ttf; sourceTree = "<group>"; };
+		23E508691D8DF8D1003012F5 /* swish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swish.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +130,8 @@
 				23944DB51D8DB9CE00B0CC19 /* GameScene.swift */,
 				23944DB01D8DB9CE00B0CC19 /* Game States */,
 				23944DAD1D8DB9C600B0CC19 /* Models */,
-				23944D981D8DB8DE00B0CC19 /* MainInterface.storyboard */,
 				23944D9B1D8DB8DE00B0CC19 /* Assets.xcassets */,
+				23944D981D8DB8DE00B0CC19 /* MainInterface.storyboard */,
 				23944D9D1D8DB8DE00B0CC19 /* Info.plist */,
 			);
 			path = MessagesExtension;
@@ -149,6 +151,7 @@
 			children = (
 				23944DA91D8DB9BA00B0CC19 /* game-over.wav */,
 				23944DAA1D8DB9BA00B0CC19 /* whistle.wav */,
+				23E508691D8DF8D1003012F5 /* swish.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -156,8 +159,8 @@
 		23944DAD1D8DB9C600B0CC19 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				23944DAE1D8DB9C600B0CC19 /* Game.swift */,
 				23944DBD1D8DD29600B0CC19 /* Basket.swift */,
+				23944DAE1D8DB9C600B0CC19 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				23944D9C1D8DB8DE00B0CC19 /* Assets.xcassets in Resources */,
 				23944DB91D8DB9CE00B0CC19 /* GameScene.sks in Resources */,
+				23E5086A1D8DF8D1003012F5 /* swish.wav in Resources */,
 				23944DC61D8DDED300B0CC19 /* game-over.wav in Resources */,
 				23944DC51D8DDECD00B0CC19 /* timenormal.ttf in Resources */,
 				23944D9A1D8DB8DE00B0CC19 /* MainInterface.storyboard in Resources */,

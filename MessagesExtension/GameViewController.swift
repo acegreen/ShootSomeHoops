@@ -34,6 +34,9 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
+            
+            // DEBUG Tools
+            skView.showsPhysics = true
             skView.showsFPS = true
             skView.showsNodeCount = true
             
