@@ -47,7 +47,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
     var didScore: Bool = false
     
     lazy var gameState: GKStateMachine = GKStateMachine(states: [
-        WaitingForTap(scene: self),
         Playing(scene: self),
         GameOver(scene: self)])
     
@@ -76,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         // Assign contactDelegate
         physicsWorld.contactDelegate = self
         
-        gameState.enter(WaitingForTap.self)
+        gameState.enter(Playing.self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -86,14 +85,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         //let touchLocationBall = touch!.location(in: self.ball)
         
         switch gameState.currentState {
-        case is WaitingForTap:
-            
-            gameDelegate?.expandView()
-            gameDelegate?.updateScore(game: self.game)
-            gameState.enter(Playing.self)
             
         case is Playing:
         
+            gameDelegate?.updateScore(game: self.game)
+            
             if let body = physicsWorld.body(at: touchLocation) {
                 if body.node! == self.ball {
                     
@@ -172,14 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         switch presentationStyle {
         case .compact:
             
-            if self.gameOver {
-                if let newScene = GameScene(fileNamed:"GameScene") {
-                    self.view?.presentScene(newScene)
-                    gameDelegate?.resetScene(scene: newScene)
-                }
-            } else {
-                gameState.enter(WaitingForTap.self)
-            }
+            print("compact")
             
         case .expanded:
             
@@ -199,7 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         ball.physicsBody?.affectedByGravity = true
         let impulse = CGVector(dx: base * (dx/norm), dy: base * (dy/norm))
         ball.physicsBody?.applyImpulse(impulse)
-        let scale: CGFloat = 0.7
+        let scale: CGFloat = 0.5
         let scaleDuration:TimeInterval = 1.0
         ball.run(SKAction.scale(by: scale, duration: scaleDuration))
     }

@@ -22,36 +22,24 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
     @IBOutlet var highScoreLabel: UILabel!
     @IBOutlet var currentScoreLabel: UILabel!
     
+    @IBOutlet var ballImageView: UIImageView!
+    @IBOutlet var tapToPlayImageView: UIImageView!
+    
     @IBOutlet var currentScoreLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var currentScoreLabelTrailingConstraint: NSLayoutConstraint!
-    @IBOutlet var currentScoreLabelCenterContraint: NSLayoutConstraint!
+    
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    @IBAction func tapGestureRecognizerAction(_ sender: AnyObject) {
+            self.requestPresentationStyle(.expanded)
+    }
     
     var gameSceneDelegate: GameSceneDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            
-            // DEBUG Tools
-            skView.showsPhysics = true
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .resizeFill
-            self.gameSceneDelegate = scene
-            scene.gameDelegate = self
-            
-            skView.presentScene(scene)
-        }
     }
-
+    
     func updateScore(game: Game) {
         currentScoreLabel.text = String(game.currentScore)
         highScoreLabel.text = String(game.highScore)
@@ -137,6 +125,47 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        
+        gameSceneDelegate?.gameVCWillTransition(to: presentationStyle)
+        
+        let skView = self.view as! SKView
+        
+        switch presentationStyle {
+        case .compact:
+            
+            ballImageView.isHidden = false
+            tapToPlayImageView.isHidden = false
+            
+            tapGestureRecognizer.isEnabled = true
+            
+            skView.presentScene(nil)
+            
+        case .expanded:
+            
+            ballImageView.isHidden = true
+            tapToPlayImageView.isHidden = true
+            
+            tapGestureRecognizer.isEnabled = false
+
+            if let scene = GameScene(fileNamed:"GameScene") {
+                // Configure the view.
+                
+                // DEBUG Tools
+                skView.showsPhysics = true
+                skView.showsFPS = true
+                skView.showsNodeCount = true
+                
+                /* Sprite Kit applies additional optimizations to improve rendering performance */
+                skView.ignoresSiblingOrder = true
+                
+                /* Set the scale mode to scale to fit the window */
+                scene.scaleMode = .resizeFill
+                self.gameSceneDelegate = scene
+                scene.gameDelegate = self
+                
+                skView.presentScene(scene)
+            }
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

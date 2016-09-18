@@ -20,14 +20,19 @@ class GameOver: GKState {
     override func didEnter(from previousState: GKState?) {
         print("Game Over State")
         
-        let gameOver = self.scene.childNode(withName: GameScene.SpriteType.GameMessageName) as! SKSpriteNode
-        let textureName = "GameOver"
-        let texture = SKTexture(imageNamed: textureName)
-        let actionSequence = SKAction.sequence([SKAction.setTexture(texture),
-                                                SKAction.scale(to: 1.0, duration: 0.25)])
-        
-        gameOver.run(actionSequence)
+        // play game over sound
         scene.run(scene.gameOverSound)
+        
+        // display game over message
+        let gameMessage = SKSpriteNode(imageNamed: "GameOver")
+        gameMessage.name = GameScene.SpriteType.GameMessageName
+        gameMessage.position = CGPoint(x: self.scene.frame.midX, y: self.scene.frame.midY)
+        gameMessage.zPosition = 4
+        gameMessage.setScale(0.0)
+        self.scene.addChild(gameMessage)
+        
+        let scale = SKAction.scale(to: 1.0, duration: 0.25)
+        scene.childNode(withName: GameScene.SpriteType.GameMessageName)!.run(scale)
     }
     
 //    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
