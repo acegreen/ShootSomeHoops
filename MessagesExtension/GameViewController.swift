@@ -20,6 +20,8 @@ protocol GameDelegate {
 class GameViewController: MSMessagesAppViewController, GameDelegate {
     
     @IBOutlet var highScoreLabel: UILabel!
+    
+    @IBOutlet var currentScoreTextLabel: UILabel!
     @IBOutlet var currentScoreLabel: UILabel!
     
     @IBOutlet var ballImageView: UIImageView!
@@ -133,6 +135,8 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
         switch presentationStyle {
         case .compact:
             
+            currentScoreTextLabel.isHidden = true
+            currentScoreLabel.isHidden = true
             ballImageView.isHidden = false
             tapToPlayImageView.isHidden = false
             
@@ -142,6 +146,8 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
             
         case .expanded:
             
+            currentScoreTextLabel.isHidden = false
+            currentScoreLabel.isHidden = false
             ballImageView.isHidden = true
             tapToPlayImageView.isHidden = true
             
@@ -151,9 +157,12 @@ class GameViewController: MSMessagesAppViewController, GameDelegate {
                 // Configure the view.
                 
                 // DEBUG Tools
-                skView.showsPhysics = true
-                skView.showsFPS = true
-                skView.showsNodeCount = true
+                #if DEBUG
+                    skView.showsPhysics = true
+                    skView.showsFPS = true
+                    skView.showsNodeCount = true
+                #else
+                #endif
                 
                 /* Sprite Kit applies additional optimizations to improve rendering performance */
                 skView.ignoresSiblingOrder = true

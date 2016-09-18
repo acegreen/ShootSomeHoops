@@ -37,7 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
     var gameDelegate: GameDelegate?
     
     var ball: SKSpriteNode!
-    //var backboard: SKSpriteNode!
+    var backboard: SKSpriteNode!
     var basket: Basket!
     
     var game = Game()
@@ -59,8 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         
         // Setup environment
         self.ball = childNode(withName: SpriteType.BallCategoryName) as! SKSpriteNode
-        //self.backboard = childNode(withName: SpriteType.BackboardCategoryName) as! SKSpriteNode
-        //self.backboard.position = CGPoint(x: self.view!.frame.midX, y: (self.view!.frame.height * (2/3)) + 20)
+        self.backboard = childNode(withName: SpriteType.BackboardCategoryName) as! SKSpriteNode
+        self.backboard.position = CGPoint(x: self.view!.frame.midX, y: (self.view!.frame.height * (2/3)) + 20)
         centerBall()
         print(ball.zPosition)
 
@@ -188,7 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         ball.physicsBody?.affectedByGravity = true
         let impulse = CGVector(dx: base * (dx/norm), dy: base * (dy/norm))
         ball.physicsBody?.applyImpulse(impulse)
-        let scale: CGFloat = 0.5
+        let scale: CGFloat = 0.7
         let scaleDuration:TimeInterval = 1.0
         ball.run(SKAction.scale(by: scale, duration: scaleDuration))
     }
@@ -231,7 +231,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
     func newBasket() -> Basket {
         let basket = Basket()
         self.basket = basket
-        basket.position = CGPoint(x: frame.midX - basket.rad/2, y: self.view!.frame.height * (2/3))
+        basket.position = CGPoint(x: frame.midX - basket.rad/2, y: self.backboard.frame.minY)
         return basket
     }
     

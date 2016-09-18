@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-c2-wAh">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-c2-wAh">
                                 <fontDescription key="fontDescription" name="Time-Normal" family="Time" pointSize="100"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -67,15 +67,15 @@
                             <constraint firstAttribute="trailing" secondItem="lqu-5J-07V" secondAttribute="trailing" constant="10" id="GdL-Ct-BsG"/>
                             <constraint firstItem="bdI-4K-ojR" firstAttribute="trailing" secondItem="lqu-5J-07V" secondAttribute="trailing" id="LqI-A5-JKh"/>
                             <constraint firstItem="3sc-3c-b2Q" firstAttribute="centerY" secondItem="bdI-4K-ojR" secondAttribute="centerY" id="Otd-QC-0fa"/>
-                            <constraint firstAttribute="trailing" secondItem="d1e-fi-ked" secondAttribute="trailing" constant="15" id="XP4-zh-bsF"/>
                             <constraint firstItem="bdI-4K-ojR" firstAttribute="top" secondItem="lqu-5J-07V" secondAttribute="bottom" constant="3.5" id="ZW4-Id-S0f"/>
                             <constraint firstItem="lqu-5J-07V" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="10" id="aqQ-lf-pSg"/>
-                            <constraint firstItem="d1e-fi-ked" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="15" id="jps-ug-tjw"/>
+                            <constraint firstItem="d1e-fi-ked" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="e37-Ag-TLM"/>
                             <constraint firstItem="7MZ-c2-wAh" firstAttribute="top" secondItem="d1e-fi-ked" secondAttribute="bottom" id="kqA-Nd-pmZ"/>
                             <constraint firstItem="gC1-Ob-eqR" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="lRf-t5-Ire"/>
                             <constraint firstItem="7MZ-c2-wAh" firstAttribute="centerX" secondItem="d1e-fi-ked" secondAttribute="centerX" id="rde-nQ-6DJ"/>
                             <constraint firstItem="bdI-4K-ojR" firstAttribute="leading" secondItem="3sc-3c-b2Q" secondAttribute="trailing" constant="5" id="vMm-P8-SvZ"/>
                             <constraint firstItem="51G-61-loW" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="ztP-ea-0Ct"/>
+                            <constraint firstItem="d1e-fi-ked" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="zyn-Cq-5U5"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bpm-WY-1Do" appends="YES" id="Cjx-hw-zrs"/>
@@ -86,8 +86,7 @@
                     <connections>
                         <outlet property="ballImageView" destination="gC1-Ob-eqR" id="T7P-j7-6kz"/>
                         <outlet property="currentScoreLabel" destination="7MZ-c2-wAh" id="Nu3-eF-0aw"/>
-                        <outlet property="currentScoreLabelTopConstraint" destination="jps-ug-tjw" id="vIi-Li-sQQ"/>
-                        <outlet property="currentScoreLabelTrailingConstraint" destination="XP4-zh-bsF" id="zwL-j8-Q46"/>
+                        <outlet property="currentScoreTextLabel" destination="d1e-fi-ked" id="e4g-KJ-LQY"/>
                         <outlet property="highScoreLabel" destination="3sc-3c-b2Q" id="g4G-1c-H2I"/>
                         <outlet property="tapGestureRecognizer" destination="Bpm-WY-1Do" id="GEj-9y-HSe"/>
                         <outlet property="tapToPlayImageView" destination="51G-61-loW" id="xF1-2m-eeu"/>

@@ -11,8 +11,8 @@ import SpriteKit
 
 class Basket: SKNode {
     
-    let rad:CGFloat = 175
-    let h:CGFloat = 10
+    let rad:CGFloat = 190
+    let h:CGFloat = 7
     var ring: SKShapeNode!
     var sensor:SKNode!
     
@@ -39,8 +39,8 @@ class Basket: SKNode {
     }
     
     func initRing() {
-        ring = SKShapeNode()
-        ring.path = CGPath(roundedRect: CGRect(x: 0, y: 0, width: rad, height: h), cornerWidth: 5, cornerHeight: 5, transform: nil)
+        ring = SKShapeNode(rect: CGRect(x: 0, y: 0, width: rad, height: h))
+        //ring.path = CGPath(roundedRect: CGRect(x: 0, y: 0, width: rad, height: h), cornerWidth: 5, cornerHeight: 5, transform: nil)
         ring.fillColor = UIColor.red
         let l = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: h), to: CGPoint(x: 2*h, y: h))
         let r = SKPhysicsBody(edgeFrom: CGPoint(x: rad-2*h, y: h), to: CGPoint(x: rad, y: h))
