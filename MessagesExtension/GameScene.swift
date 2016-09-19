@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         // Setup environment
         self.ball = childNode(withName: SpriteType.BallCategoryName) as! SKSpriteNode
         self.backboard = childNode(withName: SpriteType.BackboardCategoryName) as! SKSpriteNode
-        self.backboard.position = CGPoint(x: self.view!.frame.midX, y: (self.view!.frame.height * (2/3)) + 20)
+        self.backboard.position = CGPoint(x: self.view!.frame.midX, y: (self.view!.frame.height * (0.70)) + 20)
         centerBall()
         print(ball.zPosition)
 
@@ -184,12 +184,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
         let dx = to.x - from.x
         let dy = to.y - from.y
         let norm = sqrt(pow(dx, 2) + pow(dy, 2))
-        let base: CGFloat = 1000
+        let base: CGFloat = self.view!.frame.height
         ball.physicsBody?.affectedByGravity = true
-        let impulse = CGVector(dx: base * (dx/norm), dy: base * (dy/norm))
+        let impulse = CGVector(dx: (base) * (dx/norm), dy: base * (dy/norm))
         ball.physicsBody?.applyImpulse(impulse)
         let scale: CGFloat = 0.7
-        let scaleDuration:TimeInterval = 1.0
+        let scaleDuration: TimeInterval = 1.0
         ball.run(SKAction.scale(by: scale, duration: scaleDuration))
     }
     
@@ -240,6 +240,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
     }
     
     func ballPosition() -> CGPoint {
-        return CGPoint(x: (CGFloat(arc4random_uniform(UInt32(frame.width)))), y: (self.ball.size.height / 2) + 50)
+        return CGPoint(x: randomInRange(low: self.ball.frame.width / 2, high: frame.width - (self.ball.frame.width / 2)), y: (self.ball.size.height / 2) + 50)
+    }
+    
+    // Random number between low and high range
+    func randomInRange(low: CGFloat, high: CGFloat) -> CGFloat {
+        var RandomNumber = CGFloat(arc4random_uniform(UInt32(high)))
+        RandomNumber = max(RandomNumber, low)
+        RandomNumber = min(RandomNumber, high - low)
+        
+        return RandomNumber
     }
 }

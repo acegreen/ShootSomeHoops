@@ -11,7 +11,7 @@ import SpriteKit
 
 class Basket: SKNode {
     
-    let rad:CGFloat = 190
+    let rad:CGFloat = 180
     let h:CGFloat = 7
     var ring: SKShapeNode!
     var sensor:SKNode!
