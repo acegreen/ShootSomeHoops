@@ -1,9 +1,9 @@
 //
 //  GameScene.swift
-//  Bamboo Breakout
+//  Shoot Some Hoops
 //
-//  Created by Michael Briscoe on 4/8/16.
-//  Copyright (c) 2016 Razeware LLC. All rights reserved.
+//  Created by Ace Green on 9/16/16.
+//  Copyright © 2016 Ace Green. All rights reserved.
 //
 
 import SpriteKit
@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GameSceneDelegate {
     let gameOverSound = SKAction.playSoundFileNamed("game-over", waitForCompletion: false)
     let swishSound = SKAction.playSoundFileNamed("swish", waitForCompletion: false)
     
-    var gameDelegate: GameDelegate?
+    var gameDelegate: GameVCDelegate?
     
     var ball: SKSpriteNode!
     var backboard: SKSpriteNode!

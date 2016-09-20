@@ -1,6 +1,6 @@
 //
 //  Game.swift
-//  Keep Ups
+//  Shoot Some Hoops
 //
 //  Created by Ace Green on 9/16/16.
 //  Copyright © 2016 Ace Green. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  MessagesExtension
+//  Shoot Some Hoops
 //
 //  Created by Ace Green on 9/16/16.
 //  Copyright © 2016 Ace Green. All rights reserved.
@@ -10,14 +10,14 @@ import UIKit
 import SpriteKit
 import Messages
 
-protocol GameDelegate {
+protocol GameVCDelegate {
     func updateScore(game: Game)
     func gameOver(game: Game)
     func expandView()
     func resetScene(scene: GameScene)
 }
 
-class GameViewController: MSMessagesAppViewController, GameDelegate {
+class GameViewController: MSMessagesAppViewController, GameVCDelegate {
     
     @IBOutlet var highScoreLabel: UILabel!
     

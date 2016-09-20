@@ -1,9 +1,9 @@
 //
 //  GameOver.swift
-//  BreakoutSpriteKitTutorial
+//  Shoot Some Hoops
 //
-//  Created by Michael Briscoe on 1/16/16.
-//  Copyright © 2016 Razeware LLC. All rights reserved.
+//  Created by Ace Green on 9/16/16.
+//  Copyright © 2016 Ace Green. All rights reserved.
 //
 
 import SpriteKit
