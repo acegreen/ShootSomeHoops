@@ -33,13 +33,20 @@ class GameViewController: MSMessagesAppViewController, GameVCDelegate {
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     @IBAction func tapGestureRecognizerAction(_ sender: AnyObject) {
-            self.requestPresentationStyle(.expanded)
+        self.requestPresentationStyle(.expanded)
     }
     
     var gameSceneDelegate: GameSceneDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Workaround for when view is already expanded
+        setupScene(presentationStyle: self.presentationStyle)
     }
     
     func updateScore(game: Game) {
@@ -130,6 +137,17 @@ class GameViewController: MSMessagesAppViewController, GameVCDelegate {
         
         gameSceneDelegate?.gameVCWillTransition(to: presentationStyle)
         
+        setupScene(presentationStyle: presentationStyle)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        gameSceneDelegate?.gameVCWillTansition(to: size)
+    }
+    
+    // MARK:- Helpers
+    
+    func setupScene(presentationStyle: MSMessagesAppPresentationStyle) {
+        
         let skView = self.view as! SKView
         
         switch presentationStyle {
@@ -152,7 +170,7 @@ class GameViewController: MSMessagesAppViewController, GameVCDelegate {
             tapToPlayImageView.isHidden = true
             
             tapGestureRecognizer.isEnabled = false
-
+            
             if let scene = GameScene(fileNamed:"GameScene") {
                 // Configure the view.
                 
@@ -177,11 +195,6 @@ class GameViewController: MSMessagesAppViewController, GameVCDelegate {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        gameSceneDelegate?.gameVCWillTansition(to: size)
-    }
-    
-    // MARK:- Helpers
     func composeMessage(customMessage: String, caption: String, subCaption: String?) -> MSMessage {
         var components = URLComponents()
         
